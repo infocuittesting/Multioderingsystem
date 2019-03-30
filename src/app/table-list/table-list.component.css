@@ -2,14 +2,14 @@
     display:block;
     height:370px;
     overflow:auto;
-    font-size: 12px;
+    font-size: 13px !important;
 }
 .tableBodyScroll thead, tbody tr {
     display:table;
     width:100%;
     table-layout:fixed;
-    font-size: 11px;
-    line-height: 12px
+    font-size: 13px !important;
+    min-height: 11px !important;
 }
 .tableBodyScroll thead {
     width: calc( 100% - 1em )

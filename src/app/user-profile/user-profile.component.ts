@@ -286,7 +286,7 @@ chartpie.data = this.getpie;
 // Add and configure Series
 let pieSeries = chartpie.series.push(new am4charts.PieSeries());
 pieSeries.dataFields.value = "count";
-pieSeries.dataFields.category = "alexa_app_id";
+pieSeries.dataFields.category = "device";
 pieSeries.slices.template.stroke = am4core.color("#fff");
 pieSeries.slices.template.strokeWidth = 2;
 pieSeries.slices.template.strokeOpacity = 1;
