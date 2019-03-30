@@ -1,0 +1,129 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Front Desk</h4><span style="float:right;margin-top:-10px">
+                            <div class="input-group"><input class="form-control test" type="text" name="sear" id=""
+                                    placeholder="Search" [(ngModel)]="searchdata"> </div>
+                        </span>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive tableBodyScroll">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th style="width:50px">
+                                        ID
+                                    </th>
+                                    <th>
+                                        Request
+                                    </th>
+                                    <th>
+                                        Department
+                                    </th>
+                                    <th>
+                                        Request Status
+                                    </th>
+                                    <th>
+                                        Request Details
+                                    </th>
+                                    <th>
+                                        Room No
+                                    </th>
+                                    <th>
+                                        Ticket No
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of getdetails | mainfilter:{item_name:searchdata,department_name:searchdata,
+                                    room_no:searchdata,ticket_no:searchdata};  let i=index;">
+                                        <td style="width:50px">
+                                            {{i+1}}
+                                        </td>
+                                        <td>
+                                            {{item.item_name}}
+                                        </td>
+                                        <td>
+                                            {{item.department_name}}
+                                        </td>
+                                        <td>
+                                            {{item.request_status}}
+                                        </td>
+                                        <td>
+                                            {{item.current_datetime}}
+                                        </td>
+                                        <td>
+                                            {{item.room_no}}
+                                        </td>
+                                        <td>
+                                            {{item.ticket_no}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-header card-header-danger">
+                    <div class="row mar">
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="date" class="form-class" name="from" id="" [(ngModel)]="fromdate">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <input type="date" class="form-class" name="from" id="" [(ngModel)]="todate">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="input-group">
+                                <button class="btn btn-info" (click)="getdept(fromdate,todate)"> Get Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12" *ngFor="let item of Department">
+                        <div class="card" routerLink="/department" (click)="test(item.department_name)">
+                            <div class="card-header card-header-warning">
+                                <h3 style="float:right;margin-top:-30px">
+                                    <span class="badge badge-info">{{item.Total_Ticket}}</span> &nbsp;
+                                    <span class="badge badge-success">{{item.solved_ticket}}</span> &nbsp;
+                                    <span class="badge badge-danger">{{item.unsloved_ticket}}</span>
+                                </h3>
+                                <h4 class="card-title">{{item.department_name}}</h4>
+                                <!-- <p class="card-category">New employees on 15th September, 2016</p> -->
+                            </div>
+                            <div class="card-body table-responsive tableBodyScroll1">
+                                <table class="table table-hover">
+                                    <thead class="text-warning">
+                                        <th style="width:50px">Seq</th>
+                                        <th>Room No</th>
+                                        <th>Request Item</th>
+                                        <th>Request Status</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let list of item.details; let i=index">
+                                            <td style="width:50px">{{i+1}}</td>
+                                            <td>{{list.room_no}}</td>
+                                            <td>{{list.item_name}}</td>
+                                            <td>{{list.request_status}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

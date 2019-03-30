@@ -1,0 +1,32 @@
+.tableBodyScroll tbody {
+    display:block;
+    height:400px;
+    overflow:auto;
+    font-size: 11px;
+}
+.tableBodyScroll thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    font-size: 11px;
+    line-height: 12px
+}
+.tableBodyScroll thead {
+    width: calc( 100% - 1em )
+}
+
+.switch-small[_ngcontent-c6] {
+    width: 50px !important;
+    height: 20px !important;
+    border-radius: 20px;
+}
+
+.switch-small.checked[_ngcontent-c6] small[_ngcontent-c6] {
+    left: 30px !important;
+}
+
+
+.switch-small[_ngcontent-c6] small[_ngcontent-c6] {
+    width: 20px !important;
+    height: 20px !important;
+}

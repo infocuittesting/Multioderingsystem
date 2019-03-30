@@ -1,0 +1,52 @@
+.tableBodyScroll tbody {
+    display:block;
+    height:370px;
+    overflow:auto;
+    font-size: 11px;
+}
+.tableBodyScroll thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    font-size: 11px;
+    line-height: 12px
+}
+.tableBodyScroll thead {
+    width: calc( 100% - 1em )
+}
+
+
+.tableBodyScroll1 tbody {
+    display:block;
+    height:300px;
+    overflow:auto;
+    font-size: 11px;
+}
+.tableBodyScroll1 thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    font-size: 11px;
+    line-height: 12px
+}
+.tableBodyScroll1 thead {
+    width: calc( 100% - 1em )
+}
+
+input[type=text] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+}
+input::placeholder { color: white; }
+
+input[type=date] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+}
+.mar{
+    margin: 5px
+}

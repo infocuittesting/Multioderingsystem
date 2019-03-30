@@ -1,0 +1,457 @@
+<div class="main-content">
+    <div class="container-fluid">
+  
+          <!-- <div class="container-fluid "> -->
+                  <!-- <h2>Toggleable Pills</h2> -->
+               
+                  <!-- Nav pills -->
+                  <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item">
+                      <a class="nav-link active" data-toggle="pill" href="#home">ALEXA CONFIGURATION</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#menu1"> DEPARTMENT</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" data-toggle="pill" href="#menu2">CONFIGURE ITEMS</a>
+                    </li>
+                  </ul>
+                
+                  <!-- Tab panes -->
+                  <div class="tab-content">
+                    <div id="home" class="container tab-pane active tab"><br>
+                      
+                      
+                       <div >
+                                <div class="col-md-12">
+                                        <div class="card card-plain ">
+                                            <div class="card-header card-header-danger">
+                                                <h4 class="card-title mt-0"> ALEXA CONFIGURATION TABLE</h4>
+                                                <div class="input-group">
+                                                      <input placeholder="ENTER ALEXA ID" type="text" class="form-control" id="" name="ALEXAID"  [(ngModel)]="ALEXAID">
+                                                      <BR>
+                                                      <input  placeholder="ENTER ROOM ID" type="text" class="form-control" id="" name="ROOMID"  [(ngModel)]="ROOMID">
+                                                      <span class="input-group-btn">
+                                                              <button class="btn btn-primary" (click)=" Insert_Alexa(ALEXAID,ROOMID)">INSERT</button>
+                                                      </span></div>
+                                                
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- <div class="table-responsive"> -->
+                                                    <table class="table table-hover tableBodyScroll">
+                                                        <thead>
+                                                              <th style="width: 100px;">
+                                                                      S.NO
+                                                                  </th>
+                                                            <th style="width: 450px;">
+                                                                ALEXA APP ID
+                                                            </th>
+                                                            <th style="width: 150px;">
+                                                                ROOM ID
+                                                            </th>
+                                                            <th style="width: 200px;">
+                                                                 OPTION
+                                                              </th>
+                                                           
+                                                           
+                                                        </thead>
+                                                        <tbody>
+                                                            
+                                                            
+                                                            <tr *ngFor="let axlist of selecttable;let i=index;">
+                                                                
+                                                               <td  style="width: 100px;">{{i+1}}</td>
+                                                                <td style="width: 450px;" >
+                                                                  {{axlist.alexa_app_id}}
+                                                                </td>
+                                                                <td style="width: 150px;">
+                                                                {{axlist.room_id}} 
+                                                                </td>
+                                                                <td style="width: 200px;">
+                                                                      <div class="row">
+                                                                              <!-- panel-footer -->
+                                                                              <div class="col-6 text-left">
+                                                                                  <div class="previous">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" (click)="delbutton(axlist)">DEL
+                                                                                          <!--No glyphicons in Bootstrap 4. Insert icon of choice here-->
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="col-6 text-right" >
+                                                                                  <div class="next" style="margin-left: 5px">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal11" (click)="updatebutton(axlist)">EDT
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                      </td>
+                                                            </tr>
+  
+                                        
+                                                        </tbody>
+                                                    </table>
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                               
+                         
+                        </div>
+                    </div>
+                    <div id="menu1" class="container tab-pane fade"><br>
+                      
+                       <div class="container">
+                                <div class="col-md-12">
+                                        <div class="card card-plain">
+                                            <div class="card-header card-header-danger">
+                                                  <div class="input-group">
+                                                          <input type="text" class="form-control" placeholder="department_name" id="" name="DEPNAME"  [(ngModel)]="DEPNAME">
+                                                          <span class="input-group-btn">
+                                                                  <button class="btn btn-primary" (click)="Insert_dep(DEPNAME)">INSERT</button>
+                                                          </span></div>
+                                                
+                                                  
+                                                <h4 class="card-title mt-0"> DEPARTMENT TABLE</h4>
+                                                
+                                            </div>
+                                            <div class="card-body">
+                                                <!-- <div class="table-responsive"> -->
+                                                    <table class="table table-hover tableBodyScroll">
+                                                        <thead >
+                                                            <th style="width:90px">
+                                                               S.NO
+                                                            </th>
+                                                            <th>
+                                                                DEPARTMENT_CODE
+                                                            </th>
+                                                            <th>
+                                                                  DEPARTMENT_NAME
+                                                              </th>
+                                                              <th >
+                                                                      OPTION
+                                                                   </th>
+                                                           
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let list of deplists; let i=index">
+                                                                <td style="width:90px">
+                                                                   {{i+1}}
+                                                                </td>
+                                                                <td>
+                                                                        {{list.department_code}}
+                                                                </td>
+                                                                <td>
+                                                                      {{list.department_name}}
+                                                              </td>
+                                                              <td style="max-width: 1px;">
+                                                                      <div class="row">
+                                                                              <!-- panel-footer -->
+                                                                              <div class="col-6 text-left">
+                                                                                  <div class="previous">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1" (click)="deldep(list)">DEL
+                                                                                          <!--No glyphicons in Bootstrap 4. Insert icon of choice here-->
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="col-6 text-right">
+                                                                                  <div class="next">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal22" (click)="editdep(list)">EDT
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                      </td>
+                                                                
+                                                            </tr>
+                                                            
+                                        
+                                                        </tbody>
+                                                    </table>
+                                                <!-- </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                               
+                         
+                        </div>
+                    </div>
+                    <div id="menu2" class="container tab-pane fade"><br>
+                      
+                       <div class="container">
+                                <div class="">
+                                        <div class="card ">
+                                            <div class="card-header card-header-danger">
+                                                  <div class="input-group">
+                                                          <input type="text" class="form-control" placeholder="item_name" id="" name="ROOMID"  [(ngModel)]="IN">
+                                                          <input type="text" class="form-control" placeholder="respective_dept_id" id="" name="ROOMID"  [(ngModel)]="DI">
+                                                          <input type="text" class="form-control" placeholder="item_created_by_id" id="" name="ROOMID"  [(ngModel)]="CBI">
+                                                          <span class="input-group-btn">
+                                                                  <button class="btn btn-primary" (click)=" Insert_con(IN,DI,CBI)" type="button">INSERT</button>
+                                                          </span></div>
+                                                <h4 class="card-title mt-0"> CONFIGURE ITEMS</h4>
+                                                
+                                            </div>
+                                            <div class="card-body">
+                                               
+                                                    <table class="table table-hover tableBodyScroll">
+                                                        <thead class="">
+                                                            <th>
+                                                               DEPARTMENT NAME
+                                                            </th>
+                                                            <th>
+                                                                ITEM NAME
+                                                            </th>
+                                                            <th>
+                                                                  ITEM CODE
+                                                              </th>
+                                                              <th>
+                                                                  OPTION
+                                                                  </th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr *ngFor="let colist of conlists;">
+                                                                <td>
+                                                                   {{colist.department_name}}
+                                                                </td>
+                                                                <td>
+                                                                        {{colist.item_name}}
+                                                                </td>
+                                                                <td>
+                                                                      {{colist.item_code}}
+                                                              </td>
+                                                              <td style="max-width: 1px;">
+                                                                      <div class="row">
+                                                                              <!-- panel-footer -->
+                                                                              <div class="col-6 text-left">
+                                                                                  <div class="previous">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2" (click)="item(colist)">DEL
+                                                                                          <!--No glyphicons in Bootstrap 4. Insert icon of choice here-->
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                              <div class="col-6 text-right">
+                                                                                  <div class="next">
+                                                                                      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal33" (click)="edititem(colist)">EDT
+                                                                                          <span class=""></span>
+                                                                                      </button>
+                                                                                  </div>
+                                                                              </div>
+                                                                          </div>
+                                                                      </td>
+                                                                
+                                                            </tr>
+                                                            
+                                        
+                                                        </tbody>
+                                                    </table>
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                               
+                         
+                        </div>
+                    </div>
+                  </div>
+                <!-- </div> -->
+  
+  
+  
+                <div class="container">
+                     
+                    
+                      <!-- Button to Open the Modal -->
+                     
+                    
+                      <!-- ALEXA -->
+                      <div class="modal fade" id="myModal">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                          
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                              <h4 class="modal-title">DELETE ALEXA PROFILE</h4>
+                              <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                <label>APP ID:</label>
+                                <input class="form-control" placeholder="" value="{{alxappid}}" >
+                                <label>ALEXA ID:</label>
+                                <input class="form-control" placeholder="" value="{{alaxaid}}" >
+                            </div>
+                            
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Delete_Alexa(alaxaid)">OK</button>
+                            </div>
+                            
+                          </div>
+                        </div>
+                      </div>
+                      
+                  
+                     <!-- ALEXA UPDATE-->
+                     <div class="modal fade" id="myModal11">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">UPDATE ALEXA PROFILE</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                    <Label>ALEXA ID</Label>
+                                    <input class="form-control" placeholder="" value="{{alaxaid}}">
+                                    <Label>ALEXA APP ID</Label>
+                                    <input class="form-control" placeholder="" name="axappid" [(ngModel)]="axappid">
+                                    <Label>ROOM ID</Label>
+                                    <input class="form-control" placeholder="" name="roomid" [(ngModel)]="roomid">
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Update_Alexa(alaxaid,axappid,roomid)">OK</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                     <!-- DEPARTMENT UPDATE-->
+                     <div class="modal fade" id="myModal22">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">UPDATE DEPARTMENT PROFILE</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                    <Label>DEPARTMENT ID</Label>
+                                    <input class="form-control" placeholder="" value="{{depid}}">
+                                    <Label>DEPARTMENT NAME</Label>
+                                    <input class="form-control" placeholder="" name="departmentname" [(ngModel)]="departmentname">
+                                    
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Update_dep(depid,departmentname)">OK</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                    <!-- DEPARTMENT -->
+                    <div class="modal fade" id="myModal1">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">DELETE DEPARTMENT </h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                    <Label>DEPARTMENT ID</Label>
+                                    <input class="form-control" placeholder=""  value="{{depid}}">
+                                    <Label>DEPARTMENT NAME</Label>
+                                    <input class="form-control" placeholder="" value="{{depname}}">
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)=" Delete_Dep(depid)">OK</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>
+                       <!-- ITEMS -->
+                    <div class="modal fade" id="myModal2">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">DELETE ITEMS </h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                    <Label>ITEMS CODE</Label>
+                                    <input class="form-control" placeholder="" value="{{itid}}">
+                                    <Label>ITEMS NAME</Label>
+                                    <input class="form-control" placeholder="" value="{{itname}}">
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Delete_Item(itid)">OK</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                         <!-- ITEMS UPDATE-->
+                    <div class="modal fade" id="myModal33">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                            
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                <h4 class="modal-title">UPDATE ITEMS </h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                              </div>
+                              
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                    <Label>ITEMS NAME</Label>
+                                    <input class="form-control" placeholder="" name="" [(ngModel)]="itemname" >
+                                    <Label>DEPT ID</Label>
+                                    <input class="form-control" placeholder="" value="{{departmentid}}">
+                                    <Label>CREATER ID</Label>
+                                    <input class="form-control" placeholder="" value="{{createrid}}">
+                                    <Label>ITEMS CODE</Label>
+                                    <input class="form-control" placeholder="" value="{{itid}}">
+                              </div>
+                              
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="Update_con(itemname,departmentid,createrid,itid)">OK</button>
+                              </div>
+                              
+                            </div>
+                          </div>
+                        </div>
+                        
+                      </div>

@@ -1,0 +1,9 @@
+.box{
+    border:1px solid rgb(173, 173, 173)
+}
+input[type=date] {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+}
