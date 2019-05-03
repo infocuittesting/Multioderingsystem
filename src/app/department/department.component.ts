@@ -39,6 +39,8 @@ export class DepartmentComponent implements OnInit {
       });
   }
 getdep(){
+  this.compreq=[];
+  this.req=[];
   this.DashboardService.getdepartment(this.fromdate, this.todate)
   .subscribe((resp: any) => {
     this.getDepartment = resp.Returnvalue;
